@@ -1,0 +1,42 @@
+﻿@*@page
+    @model WebApp.Views.Home.IndexModel
+    @{
+    }*@
+
+@model People
+
+    @{
+        //Layout = "~/Views/Shared/_Layout.cshtml";
+        ViewBag.Title = "Index";
+    }
+    @*<h1>
+        //@ViewBag.Header
+    </h1>*@
+    @{
+        var p = ViewData["data"] as People;
+    }
+
+    @*<h1>@p.Name</h1>
+    <h1>@Model.Id</h1>
+    <h1>@Model.Name</h1>
+    <h2>from view</h2>*@
+
+<div class="row justify-content-center col-sm-8">
+    <div class="card">
+        <div class="card-header">
+            <h1>@Model.Name</h1>
+        </div>
+        <div class="card-body text-center">
+            <h2>Id : @Model.Id</h2>
+        </div>
+        <div class="card-footer text-center">
+            <a asp-controller="home" asp-action="list"
+               class="btn btn-primary">Back</a>
+
+            <a href="#" class="btn btn-primary m-1">Edit</a>
+            <a href="#" class="btn btn-danger m-1">Delete</a>
+        </div>
+
+    </div>
+
+</div>

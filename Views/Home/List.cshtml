@@ -1,0 +1,78 @@
+﻿@model PeopleViewModel
+
+@{
+    //Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "List";
+}
+
+
+
+
+
+
+<h1>
+    @Model.header
+</h1>
+
+<div class="card-deck">
+    @foreach (var item in Model.peopleList)
+    {
+        <div class="card m-2">
+            <div class="card-header">
+                <h1>@item.Name</h1>
+            </div>
+
+            <img class="card-img-top" src="~/images/noimages.jpg" asp-append-version="true" />
+            <div class="card-footer text-center">
+
+                <a asp-controller="home" asp-action="index" asp-route-id="@item.Id"
+                   class="btn btn-primary  m-1">Details</a>
+
+                <a href="@Url.Action("Index","Home",new { id=@item.Id})" class="btn btn-primary  m-1">Show</a>
+                <div  style="font-size: 14px; "class="btn  m-1">
+                    @Html.ActionLink("Display", "Index", "Home", new { id = @item.Id })
+                </div>
+                
+
+                <a href="/Home/Index/@item.Id" class="btn btn-primary">View</a>
+                <a href="#" class="btn btn-primary  m-1">Edit</a>
+                <a href="#" class="btn btn-danger  m-1">Delete</a>
+            </div>
+
+        </div>
+
+    }
+
+</div>
+
+
+
+
+@*<table>
+    <thead>
+        <tr>
+            <td>Id</td>
+            <td>Name</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.peopleList)
+        {
+            <tr>
+                <td>
+                    <h2>@item.Id</h2>
+                </td>
+                <td>
+                    <h2>@item.Name</h2>
+                </td>
+            </tr>
+
+        }
+    </tbody>
+</table>*@
+
+
+@section Scripts{
+    <script src="~/js/Custom.js"></script> 
+}
+
