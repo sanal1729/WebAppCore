@@ -49,13 +49,15 @@ namespace WebApplication1.Controllers
         }
 
         [HttpPost]
-        public RedirectToActionResult Create(People people)
+        public IActionResult Create(People people)
+        //public RedirectToActionResult Create(People people)
         {
-
-            People newPeople = _people.AddPeople(people);
-
-
+            if(ModelState.IsValid)
+            { People newPeople = _people.AddPeople(people);
             return RedirectToAction("Index",new { id= newPeople.Id });
+            }
+            return View();
+
         }
 
 

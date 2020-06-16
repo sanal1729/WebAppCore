@@ -14,11 +14,11 @@ namespace WebApp.Models
         {
             _peopleList = new List<People>()
             {
-            new People() { Id = 1,Name = "Sam"},
-            new People() { Id = 2,Name = "Ram"},
-            new People() { Id = 3,Name = "Raj"},
-            new People() { Id = 4,Name = "Tom"},
-            new People() { Id = 5,Name = "Zia"}
+            new People() { Id = 1,Name = "Sam",Email = "Sam@gmail.com" , Department = Dept.IT},
+            new People() { Id = 2,Name = "Ram",Email = "Ram@gmail.com" , Department = Dept.HR},
+            new People() { Id = 3,Name = "Raj",Email = "Raj@gmail.com" , Department = Dept.Finance},
+            new People() { Id = 4,Name = "Tom",Email = "Tom@gmail.com" , Department = Dept.Finance},
+            new People() { Id = 5,Name = "Zia",Email = "Zia@gmail.com" , Department = Dept.IT}
 
             };
         }
