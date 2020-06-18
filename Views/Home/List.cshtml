@@ -17,29 +17,34 @@
 <div class="card-deck">
     @foreach (var item in Model.peopleList)
     {
-        <div class="card m-2">
-            <div class="card-header">
-                <h1>@item.Name</h1>
-            </div>
-
-            <img class="card-img-top" src="~/images/noimages.jpg" asp-append-version="true" />
-            <div class="card-footer text-center">
-
-                <a asp-controller="home" asp-action="index" asp-route-id="@item.Id"
-                   class="btn btn-primary  m-1">Details</a>
-
-                <a href="@Url.Action("Index","Home",new { id=@item.Id})" class="btn btn-primary  m-1">Show</a>
-                <div  style="font-size: 14px; "class="btn  m-1">
-                    @Html.ActionLink("Display", "Index", "Home", new { id = @item.Id })
-                </div>
-                
-
-                <a href="/Home/Index/@item.Id" class="btn btn-primary">View</a>
-                <a href="#" class="btn btn-primary  m-1">Edit</a>
-                <a href="#" class="btn btn-danger  m-1">Delete</a>
-            </div>
-
+    <div class="card m-2">
+        <div class="card-header">
+            <h1>@item.Name</h1>
         </div>
+
+        <div class="card-body text-center">
+            <h3>@item.Department</h3>
+            <h7>@item.Email</h7>
+        </div>
+
+        <img class="card-img-top" src="~/images/noimages.jpg" asp-append-version="true" />
+        <div class="card-footer text-center">
+
+            <a asp-controller="home" asp-action="index" asp-route-id="@item.Id"
+               class="btn btn-primary  m-1">Details</a>
+
+            <a href="@Url.Action("Index","Home",new { id=@item.Id})" class="btn btn-primary  m-1">Show</a>
+            <div style="font-size: 14px; " class="btn  m-1">
+                @Html.ActionLink("Display", "Index", "Home", new { id = @item.Id })
+            </div>
+
+
+            <a href="/Home/Index/@item.Id" class="btn btn-primary">View</a>
+            <a href="#" class="btn btn-primary  m-1">Edit</a>
+            <a href="#" class="btn btn-danger  m-1">Delete</a>
+        </div>
+
+    </div>
 
     }
 

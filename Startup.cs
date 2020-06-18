@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -26,9 +27,16 @@ namespace WebApplication1
         }
         public void ConfigureServices(IServiceCollection services)
         {
+
+            services.AddDbContextPool<WebAppSqlDBContext>(
+                     options => options.UseSqlServer(_config.GetConnectionString("MSSQLDBConnection")));
+
+
             //services.AddMvc();
             services.AddMvc(options => options.EnableEndpointRouting = false);
-            services.AddSingleton<IPeople, NonSqlPeopleRepository > ();
+
+            //services.AddSingleton<IPeople, NonSqlPeopleRepository > ();
+            services.AddScoped<IPeople, SqlPeopleRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

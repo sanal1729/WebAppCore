@@ -10,5 +10,7 @@ namespace WebApp.Models.Abstract
         People GetPeople(int id);
         IEnumerable<People> GetAll();
         People AddPeople(People people);
+        People DeletePeople(int id);
+        People UpdatePeople(People peopleChanges);
     }
 }

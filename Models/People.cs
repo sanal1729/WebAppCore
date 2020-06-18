@@ -11,6 +11,7 @@ namespace WebApp.Models
     {       
 
         public int Id { get; set; }
+
         [Required]
         public string Name { get; set; }
         [Required]
@@ -19,6 +20,7 @@ namespace WebApp.Models
         ErrorMessage = "Invalid email format")]
         public string Email { get; set; }
 
-        public Dept Department { get; set; }
+        [Required] 
+        public Dept? Department { get; set; }
     }
 }
