@@ -17,7 +17,9 @@
 <div class="card-deck">
     @foreach (var item in Model.peopleList)
     {
-    <div class="card m-2">
+
+        var photoPath = "~/images/" + (item.PhotoPath ?? "noimages.jpg");
+    <div class="card m-2" style="min-width: 18rem; max-width:30.5%;">
         <div class="card-header">
             <h1>@item.Name</h1>
         </div>
@@ -26,8 +28,9 @@
             <h3>@item.Department</h3>
             <h7>@item.Email</h7>
         </div>
-
-        <img class="card-img-top" src="~/images/noimages.jpg" asp-append-version="true" />
+        <img class="card-img-top imageThumbnail" src="@photoPath"
+             asp-append-version="true" />
+        @*<img class="card-img-top" src="~/images/noimages.jpg" asp-append-version="true" />*@
         <div class="card-footer text-center">
 
             <a asp-controller="home" asp-action="index" asp-route-id="@item.Id"
@@ -40,7 +43,7 @@
 
 
             <a href="/Home/Index/@item.Id" class="btn btn-primary">View</a>
-            <a href="#" class="btn btn-primary  m-1">Edit</a>
+            <a asp-controller="home" asp-action="edit" asp-route-id="@item.Id" class="btn btn-primary  m-1">Edit</a>
             <a href="#" class="btn btn-danger  m-1">Delete</a>
         </div>
 

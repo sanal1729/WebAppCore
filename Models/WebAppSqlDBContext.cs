@@ -15,6 +15,13 @@ namespace WebApp.Models
         }
 
 
+
         public DbSet<People> Peoples { get; set; }
+
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Seed();
+        }
     }
 }

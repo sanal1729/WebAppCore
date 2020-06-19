@@ -9,8 +9,8 @@ using WebApp.Models;
 namespace WebApp.Migrations
 {
     [DbContext(typeof(WebAppSqlDBContext))]
-    [Migration("20200617123002_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20200618114257_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -41,6 +41,22 @@ namespace WebApp.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Peoples");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Department = 1,
+                            Email = "zia@zia.com",
+                            Name = "Zia"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Department = 3,
+                            Email = "tom@tom.com",
+                            Name = "Tom"
+                        });
                 });
 #pragma warning restore 612, 618
         }

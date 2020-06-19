@@ -2,7 +2,7 @@
 
 namespace WebApp.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -20,6 +20,16 @@ namespace WebApp.Migrations
                 {
                     table.PrimaryKey("PK_Peoples", x => x.Id);
                 });
+
+            migrationBuilder.InsertData(
+                table: "Peoples",
+                columns: new[] { "Id", "Department", "Email", "Name" },
+                values: new object[] { 1, 1, "zia@zia.com", "Zia" });
+
+            migrationBuilder.InsertData(
+                table: "Peoples",
+                columns: new[] { "Id", "Department", "Email", "Name" },
+                values: new object[] { 2, 3, "tom@tom.com", "Tom" });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

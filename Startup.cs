@@ -52,7 +52,11 @@ namespace WebApplication1
 
                 app.UseDeveloperExceptionPage();
             }
-
+            else
+            {
+                app.UseExceptionHandler("/Error");
+                app.UseStatusCodePagesWithReExecute("/Error/{0}");
+            }
 
 
             //DefaultFilesOptions defaultFilesOptions = new DefaultFilesOptions();
@@ -68,7 +72,7 @@ namespace WebApplication1
 
             //app.UseMvcWithDefaultRoute();
 
-            app.UseMvc(routes=> { routes.MapRoute("default", "{controller=Home}/{action=Index}/{id?}"); });
+            app.UseMvc(routes=> { routes.MapRoute("default", "{controller=Home}/{action=List}/{id?}"); });
 
             //app.UseMvc();
 
@@ -89,11 +93,11 @@ namespace WebApplication1
 
            */
 
-            app.Run(async (context) =>
-            {
-                await context.Response.WriteAsync("Nth MW "+env.EnvironmentName);
+            //app.Run(async (context) =>
+            //{
+            //    await context.Response.WriteAsync("Nth MW "+env.EnvironmentName);
 
-            });
+            //});
 
 
 
